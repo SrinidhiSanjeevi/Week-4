@@ -1,6 +1,5 @@
 pipeline {
-
-```
+    
 agent any
 
 options {
@@ -202,6 +201,6 @@ post {
         echo 'Pipeline execution finished'
     }
 }
-```
+
 
 }
