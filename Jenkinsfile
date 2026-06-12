@@ -38,7 +38,7 @@ pipeline {
 
         stage('Install Backend Dependencies') {
             steps {
-                dir('L04/docker_project/backend') {
+               dir('backend') {
                     sh 'npm install'
                 }
             }
@@ -69,8 +69,8 @@ pipeline {
 
         stage('Verify Project Files') {
             steps {
-                sh 'ls -la L04/docker_project/backend'
-                sh 'ls -la L04/docker_project/frontend'
+                sh 'ls -la backend'
+                sh 'ls -la frontend'
             }
         }
 
@@ -86,7 +86,7 @@ pipeline {
                         sh """
                         docker build \
                         -t ${BACKEND_IMAGE} \
-                        L04/docker_project/backend
+                        backend
                         """
                     }
                 }
@@ -99,7 +99,7 @@ pipeline {
                         sh """
                         docker build \
                         -t ${FRONTEND_IMAGE} \
-                        L04/docker_project/frontend
+                        frontend
                         """
                     }
                 }
@@ -201,7 +201,7 @@ pipeline {
 
             echo 'Pipeline execution finished'
 
-            // cleanWs()
+    
         }
     }
 }
